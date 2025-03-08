@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hearty heart</title>
+    <style>
+        /* Center the heart on the screen */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #888cff;
+            margin: 0;
+        }
+
+        /* Heart Shape */
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 17, 0);
+            transform: rotate(-45deg);
+            margin-top: 50px;
+            display: flex;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        /* Heartbeat Animation */
+        @keyframes heartbeat {
+            0% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.1) rotate(-45deg); }
+            100% { transform: scale(1) rotate(-45deg); }
+        }
+
+        .heart {
+            animation: heartbeat 1s infinite;
+        }
+
+        /* ✅ Responsive Design - Adjust heart size on smaller screens */
+        @media (max-width: 600px) {
+            .heart {
+                width: 60px;
+                height: 60px;
+            }
+            .heart::before, .heart::after {
+                width: 60px;
+                height: 60px;
+            }
+            .heart::before {
+                top: -30px;
+            }
+            .heart::after {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">Love</div>
+</body>
+</html>
